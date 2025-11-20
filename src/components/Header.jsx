@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import profileImg from '../img/275804038_2790083314471394_461145730567040956_n.jpg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +22,18 @@ const Header = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo - Geometric Wright style */}
             <div className="flex-shrink-0">
-              <div className="relative w-16 h-16 flex items-center justify-center">
-                <div className="w-12 h-12 bg-amber-600 border-2 border-white transform rotate-45 absolute"></div>
-                <span className="text-2xl font-bold text-amber-100 relative z-10 tracking-wider">YM</span>
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                {/* Outer geometric frame - rotated 45 degrees */}
+                <div className="absolute inset-0 border-2 border-amber-100 transform rotate-45"></div>
+                <div className="absolute inset-0.5 border border-amber-600 transform rotate-45"></div>
+                <div className="absolute inset-1 bg-stone-800 transform rotate-45"></div>
+                {/* Text centered without rotation */}
+                <span className="text-sm font-bold text-amber-100 relative z-10 tracking-wide">YM</span>
+                {/* Corner accents - positioned outside diamond corners */}
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-orange-700"></div>
+                <div className="absolute top-1/2 -right-2.5 -translate-y-1/2 w-2.5 h-2.5 bg-orange-700"></div>
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-orange-700"></div>
+                <div className="absolute top-1/2 -left-2.5 -translate-y-1/2 w-2.5 h-2.5 bg-orange-700"></div>
               </div>
             </div>
 
@@ -113,14 +123,18 @@ const Header = () => {
         <div className="absolute bottom-20 right-10 w-24 h-24 border-4 border-orange-600 transform rotate-12 opacity-20"></div>
 
         <div className="text-center relative z-10 max-w-4xl">
-          {/* Geometric logo frame */}
+          {/* Profile picture with geometric frame */}
           <div className="mb-12 relative">
             <div className="w-48 h-48 mx-auto relative">
               {/* Outer geometric frame */}
               <div className="absolute inset-0 border-8 border-stone-800 transform rotate-0"></div>
               <div className="absolute inset-2 border-4 border-amber-600"></div>
-              <div className="absolute inset-4 bg-gradient-to-br from-amber-600 to-orange-700 flex items-center justify-center">
-                <span className="text-6xl font-bold text-stone-900 tracking-wider">YM</span>
+              <div className="absolute inset-4 overflow-hidden">
+                <img
+                  src={profileImg}
+                  alt="Yonas Melkie"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Corner accents */}
               <div className="absolute -top-2 -left-2 w-6 h-6 bg-orange-700"></div>
