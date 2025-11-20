@@ -1,0 +1,281 @@
+/* Frank Lloyd Wright-inspired Calculator Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #fef3c7, #fed7aa, #fef3c7);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Top and bottom geometric borders */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: #292524;
+  z-index: 100;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 12px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(to right, #b45309, #ea580c, #b45309);
+  z-index: 100;
+}
+
+/* Back button */
+.back {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  background: #292524;
+  color: #fef3c7;
+  border: 4px solid #d97706;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  z-index: 101;
+}
+
+.back:hover {
+  background: #d97706;
+  color: #292524;
+  transform: scale(1.05);
+}
+
+/* Calculator container */
+.calculator {
+  position: relative;
+  background: #fef3c7;
+  border: 8px solid #292524;
+  padding: 0;
+  max-width: 400px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* Corner accent squares */
+.calculator::before,
+.calculator::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #c2410c;
+}
+
+.calculator::before {
+  top: -8px;
+  left: -8px;
+}
+
+.calculator::after {
+  top: -8px;
+  right: -8px;
+}
+
+.calculator {
+  box-shadow:
+    0 0 0 4px #fef3c7,
+    0 0 0 8px #292524;
+}
+
+/* Additional corner squares using pseudo-elements on inner container */
+.buttons::before,
+.buttons::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #c2410c;
+  bottom: -8px;
+  z-index: 10;
+}
+
+.buttons::before {
+  left: -8px;
+}
+
+.buttons::after {
+  right: -8px;
+}
+
+/* Inner border */
+.calculator > * {
+  position: relative;
+}
+
+/* Display */
+.display {
+  background: #292524;
+  color: #fef3c7;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: right;
+  padding: 32px 24px;
+  border: 4px solid #d97706;
+  border-bottom: 2px solid #b45309;
+  word-wrap: break-word;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Buttons grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: #292524;
+  padding: 2px;
+  position: relative;
+}
+
+/* Button base styles */
+.btn {
+  background: #fef3c7;
+  color: #292524;
+  border: 2px solid #d97706;
+  padding: 28px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: #fed7aa;
+  transform: scale(0.98);
+  border-color: #ea580c;
+}
+
+.btn:active {
+  background: #d97706;
+  color: #fef3c7;
+  transform: scale(0.95);
+}
+
+/* Number buttons */
+.btn.num {
+  background: #fef3c7;
+  font-weight: bold;
+}
+
+.btn.num:hover {
+  background: #fde68a;
+}
+
+/* Operator buttons */
+.btn.opp {
+  background: #d97706;
+  color: #fef3c7;
+  border-color: #292524;
+}
+
+.btn.opp:hover {
+  background: #ea580c;
+  border-color: #fef3c7;
+}
+
+/* Clear button */
+.btn.clear {
+  background: #c2410c;
+  color: #fef3c7;
+  border-color: #292524;
+}
+
+.btn.clear:hover {
+  background: #dc2626;
+}
+
+/* Backspace button */
+.btn.backspace {
+  background: #92400e;
+  color: #fef3c7;
+  border-color: #292524;
+}
+
+.btn.backspace:hover {
+  background: #b45309;
+}
+
+/* Equals button */
+.btn.equals {
+  background: #292524;
+  color: #fef3c7;
+  border: 4px solid #d97706;
+  font-size: 32px;
+}
+
+.btn.equals:hover {
+  background: #44403c;
+  border-color: #ea580c;
+}
+
+.btn.equals:active {
+  background: #d97706;
+  color: #292524;
+}
+
+/* Decimal and sign toggle */
+.btn.decimal,
+.btn.sign-toggle {
+  background: #fed7aa;
+  border-color: #b45309;
+}
+
+.btn.decimal:hover,
+.btn.sign-toggle:hover {
+  background: #fdba74;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .calculator {
+    max-width: 100%;
+  }
+
+  .display {
+    font-size: 36px;
+    padding: 24px 16px;
+    min-height: 80px;
+  }
+
+  .btn {
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .btn.equals {
+    font-size: 24px;
+  }
+
+  .back {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
