@@ -98,7 +98,7 @@ calculator.addEventListener("click", (event) => {
     } else if (target.classList.contains("equals")) {
         num2 = display.textContent;
         let result = calc(num1, num2, opp);
-        if (result.toString().includes('.')) {
+        if (result.toString().includes('.') && result < 10000) {
             display.textContent = result.toFixed(2).toString();
         } else if (result >= 10000) {
             display.textContent = result.toExponential(2).toString();
@@ -145,7 +145,7 @@ document.addEventListener("keydown", (event) => {
         event.preventDefault();
         num2 = display.textContent;
         let result = calc(num1, num2, opp);
-        if (result.toString().includes('.')) {
+        if (result.toString().includes('.')  && result < 10000) {
             result = result.toFixed(2);
         } else if (result >= 10000) {
             result = result.toExponential(2);
