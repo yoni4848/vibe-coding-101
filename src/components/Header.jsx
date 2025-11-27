@@ -20,20 +20,15 @@ const Header = () => {
       <nav className="w-full bg-stone-800 border-b-4 border-amber-600 fixed top-0 z-50 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo - Geometric Wright style */}
+            {/* Logo - Refined Geometric Wright style */}
             <div className="flex-shrink-0">
-              <div className="relative w-12 h-12 flex items-center justify-center">
-                {/* Outer geometric frame - rotated 45 degrees */}
-                <div className="absolute inset-0 border-2 border-amber-100 transform rotate-45"></div>
-                <div className="absolute inset-0.5 border border-amber-600 transform rotate-45"></div>
-                <div className="absolute inset-1 bg-stone-800 transform rotate-45"></div>
+              <div className="relative w-14 h-14 flex items-center justify-center">
+                {/* Cleaner geometric frame - rotated 45 degrees */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-orange-700 transform rotate-45 shadow-lg"></div>
+                <div className="absolute inset-0.5 bg-stone-800 transform rotate-45"></div>
+                <div className="absolute inset-1.5 border-2 border-amber-600/50 transform rotate-45"></div>
                 {/* Text centered without rotation */}
-                <span className="text-sm font-bold text-amber-100 relative z-10 tracking-wide">YM</span>
-                {/* Corner accents - positioned outside diamond corners */}
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-orange-700"></div>
-                <div className="absolute top-1/2 -right-2.5 -translate-y-1/2 w-2.5 h-2.5 bg-orange-700"></div>
-                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-orange-700"></div>
-                <div className="absolute top-1/2 -left-2.5 -translate-y-1/2 w-2.5 h-2.5 bg-orange-700"></div>
+                <span className="text-base font-bold text-amber-100 relative z-10 tracking-wider">YM</span>
               </div>
             </div>
 
@@ -123,24 +118,26 @@ const Header = () => {
         <div className="absolute bottom-20 right-10 w-24 h-24 border-4 border-orange-600 transform rotate-12 opacity-20"></div>
 
         <div className="text-center relative z-10 max-w-4xl">
-          {/* Profile picture with geometric frame */}
+          {/* Profile picture with refined geometric frame */}
           <div className="mb-12 relative">
-            <div className="w-48 h-48 mx-auto relative">
-              {/* Outer geometric frame */}
-              <div className="absolute inset-0 border-8 border-stone-800 transform rotate-0"></div>
-              <div className="absolute inset-2 border-4 border-amber-600"></div>
-              <div className="absolute inset-4 overflow-hidden">
+            <div className="w-56 h-56 mx-auto relative group">
+              {/* Elegant layered frame */}
+              <div className="absolute -inset-1 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700 opacity-75 blur-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-orange-700 shadow-xl"></div>
+              <div className="absolute inset-2 bg-stone-800"></div>
+              <div className="absolute inset-3 border-2 border-amber-600/40"></div>
+              <div className="absolute inset-5 overflow-hidden shadow-inner">
                 <img
                   src={profileImg}
                   alt="Yonas Melkie"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              {/* Corner accents */}
-              <div className="absolute -top-2 -left-2 w-6 h-6 bg-orange-700"></div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-700"></div>
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-700"></div>
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-orange-700"></div>
+              {/* Refined corner accents */}
+              <div className="absolute -top-1.5 -left-1.5 w-4 h-4 bg-gradient-to-br from-amber-500 to-orange-600"></div>
+              <div className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-gradient-to-bl from-amber-500 to-orange-600"></div>
+              <div className="absolute -bottom-1.5 -left-1.5 w-4 h-4 bg-gradient-to-tr from-amber-500 to-orange-600"></div>
+              <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-gradient-to-tl from-amber-500 to-orange-600"></div>
             </div>
           </div>
 
